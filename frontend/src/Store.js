@@ -1,29 +1,46 @@
-import {combineReducers , applyMiddleware} from 'redux'
-import thunk from 'redux-thunk'
-import { configureStore } from '@reduxjs/toolkit'
-import { composeWithDevTools } from '@redux-devtools/extension';
-import {ProductFetchReducer , SingleProductReducer} from './Reducers/ProductFetchReducer'
-import {CartReducer} from './Reducers/CartReducer'
+import { combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
+import { composeWithDevTools } from "@redux-devtools/extension";
+import {
+  ProductFetchReducer,
+  SingleProductReducer,
+} from "./Reducers/ProductFetchReducer";
+import { CartReducer } from "./Reducers/CartReducer";
+import {
+  UserDetailsReducer,
+  UserLoginReducer,
+  UserSignUpReducer,
+} from "./Reducers/UserAuthReducer";
 
+const CartItemFromStorage = localStorage.getItem("CartItem")
+  ? JSON.parse(localStorage.getItem("CartItem"))
+  : [];
 
-const CartItemFromStorage = localStorage.getItem('CartItem') ? localStorage.getItem('CartItem' , JSON.parse) : []
+const LoggedinUserFromStorage = localStorage.getItem("loggedInUser")
+  ? JSON.parse(localStorage.getItem("loggedInUser"))
+  : {};
 
 const reducer = combineReducers({
-    Product : ProductFetchReducer,
-    SingleProduct : SingleProductReducer,
-    Cart : CartReducer,
-})
+  Product: ProductFetchReducer,
+  SingleProduct: SingleProductReducer,
+  Cart: CartReducer,
+  UserSignup: UserSignUpReducer,
+  Userlogin: UserLoginReducer,
+  UserDetailsReducer: UserDetailsReducer,
+});
 
 const InitialState = {
-    CartItem : CartItemFromStorage
-}
+  Cart: { CartItem: CartItemFromStorage },
+  UserLogin: { LoggedInUser: LoggedinUserFromStorage },
+};
 
-const middleware = [thunk]
+const middleware = [thunk];
 
 const store = configureStore(
-    {reducer},
-    InitialState,
-    composeWithDevTools(applyMiddleware(middleware))
-)
+  { reducer },
+  InitialState,
+  composeWithDevTools(applyMiddleware(middleware))
+);
 
-export default store
+export default store;

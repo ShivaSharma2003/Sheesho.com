@@ -1,4 +1,4 @@
-const data = require('./Data/data.json');
+const data = require('./Data/MockData.json')
 const DatabaseConnection = require('./Database/Database');
 const dotenv = require('dotenv');
 const FashionProduct = require('./Models/FashionProductModel');

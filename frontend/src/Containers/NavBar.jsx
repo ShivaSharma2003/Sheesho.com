@@ -5,7 +5,7 @@ import AccountDropdown from "../Components/AccountDropdown";
 const NavBar = () => {
   return (
     <>
-      <nav className="h-16 w-screen grid grid-cols-3 border-2 shadow-sm px-4 py-2">
+      <nav className="h-16 w-screen grid grid-cols-3 border-2 shadow-sm px-4 py-2 bg-white">
         <LinkContainer to={"/"}>
           <div>
             <h1 className="text-pink-600 font-sans font-bold cursor-pointer m-0">

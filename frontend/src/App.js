@@ -22,7 +22,7 @@ function App() {
             <Route exact path="/login" element={<LoginScreen />} />
           </Routes>
         </main>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </>
   );
