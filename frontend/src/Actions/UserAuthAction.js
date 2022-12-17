@@ -43,8 +43,8 @@ export const UserLogin = (email, password) => async (dispatch, getstate) => {
 };
 
 export const UserLogout = () => (dispatch) => {
-  localStorage.removeItem("loggedInUser");
-  dispatch({ type: Logout_user });
+    dispatch({ type: Logout_user });
+    localStorage.removeItem("loggedInUser");
 };
 
 export const UserDetails = () => async (dispatch, getstate) => {};

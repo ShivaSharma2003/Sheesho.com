@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { UserLogin } from "../Actions/UserAuthAction";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Spinner from "../Components/Spinner";
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const User = useSelector((state) => state.Userlogin);
   const { loading, success, error } = User;
@@ -28,7 +29,7 @@ const LoginScreen = () => {
         {loading ? (
           <Spinner />
         ) : success ? (
-          <Navigate to="/" replace={true} />
+          navigate(-1)
         ) : (
           <form
             action="submit"

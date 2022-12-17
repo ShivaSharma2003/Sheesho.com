@@ -36,7 +36,7 @@ const ProductScreen = () => {
   // ---------------------------------------------------------------
   const AddToCartButtonHandler = (e) => {
     e.preventDefault();
-    navigate("/cart");
+    navigate("/checkout/cart");
     dispatch(AddtoCart(product));
   };
 

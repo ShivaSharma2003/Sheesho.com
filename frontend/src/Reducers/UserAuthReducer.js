@@ -8,7 +8,7 @@ import {
   Get_User_Request,
   Get_User_Success,
   Get_User_Fails,
-  Logout_user
+  Logout_user,
 } from "../Constant/UserAuthConstant";
 
 const UserSignUpReducer = (state = { User: {}, success: false }, action) => {
@@ -36,7 +36,7 @@ const UserLoginReducer = (
     case User_Login_Fails:
       return { loading: false, error: action.error };
     case Logout_user:
-      return {}
+      return { LoggedInUser: {}, success: false };
     default:
       return state;
   }
@@ -58,8 +58,4 @@ const UserDetailsReducer = (
   }
 };
 
-export {
-  UserLoginReducer,
-  UserSignUpReducer,
-  UserDetailsReducer,
-};
+export { UserLoginReducer, UserSignUpReducer, UserDetailsReducer };

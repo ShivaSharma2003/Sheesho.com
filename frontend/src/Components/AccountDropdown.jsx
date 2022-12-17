@@ -15,9 +15,9 @@ const AccountDropdown = () => {
     navigate("/login");
   };
 
-  const LogoutButtonHandler = (e) => {
-    e.preventDefault()
+  const LogoutButtonHandler = () => {
     dispatch(UserLogout());
+    navigate("/login");
   };
 
   const AccountDropdownHandler = () => {
@@ -80,7 +80,6 @@ const AccountDropdown = () => {
                 <button
                   className="w-full bg-pink-500 h-12 text-center text-white font-semibold text-lg"
                   onClick={LogoutButtonHandler}
-                  type='button'
                 >
                   Sign Out
                 </button>

@@ -31,7 +31,7 @@ const NavBar = () => {
         </div>
         <div className="flex items-center w-full justify-center">
           <AccountDropdown />
-          <LinkContainer to={"/cart"}>
+          <LinkContainer to={"/checkout/cart"}>
             <span className="mx-4 text-center text-gray-500 cursor-pointer">
               <i class="fa fa-shopping-cart text-2xl" aria-hidden="true"></i>
               <h6>Cart</h6>

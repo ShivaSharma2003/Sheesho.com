@@ -3,11 +3,16 @@ import { useSelector } from "react-redux";
 import CartItem from "../Containers/CartItem";
 import PriceContainer from "../Containers/PriceContainer";
 import EmptyCart from "../Components/EmptyCart";
-import { LinkContainer } from "react-router-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const CartScreen = () => {
   const Cart = useSelector((state) => state.Cart);
   const { CartItems, Quantity } = Cart;
+  const navigate = useNavigate();
+  
+  const VeiwMoreButtonHandler = () => {
+    navigate("/");
+  };
   return (
     <>
       {Quantity === 0 && <EmptyCart />}
@@ -27,11 +32,12 @@ const CartScreen = () => {
               <PriceContainer product={CartItems} />
             </div>
           </div>
-          <LinkContainer to={"/"}>
-            <button className="h-10 w-48 border-2 my-2 border-pink-500 text-pink-500 rounded-sm text-center">
-              Veiw More Products
-            </button>
-          </LinkContainer>
+          <button
+            className="h-10 w-48 border-2 my-2 border-pink-500 text-pink-500 rounded-sm text-center"
+            onClick={VeiwMoreButtonHandler}
+          >
+            Veiw More Products
+          </button>
         </div>
       )}
     </>
