@@ -1,27 +1,29 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-const DatabaseConnection = require('./Database/Database');
-const ProductRoutes = require('./Routes/ProductRoute');
-const UserRoute = require('./Routes/UserRoute')
-const cors = require('cors');
+const DatabaseConnection = require("./Database/Database");
+const ProductRoutes = require("./Routes/ProductRoute");
+const UserRoute = require("./Routes/UserRoute");
+const OrderRoute = require("./Routes/OrderRouter");
+const cors = require("cors");
 
 // .env config
 dotenv.config();
-DatabaseConnection()
+DatabaseConnection();
 
 // middlewares
-app.use(express.json())
-app.use(cors())
+app.use(express.json());
+app.use(cors());
 
 // Routes
-app.use('/v1/products' , ProductRoutes)
-app.use('/v1/user' , UserRoute)
+app.use("/v1/products", ProductRoutes);
+app.use("/v1/user", UserRoute);
+app.use("/v1/orders", OrderRoute);
 
 app.get("/", (req, res) => {
   res.status(200);
 });
 
-app.listen(process.env.PORT , () => {
+app.listen(process.env.PORT, () => {
   console.log(`listening on http://localhost:${process.env.PORT}`);
 });

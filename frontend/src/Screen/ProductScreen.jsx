@@ -46,9 +46,9 @@ const ProductScreen = () => {
 
   return (
     <>
-      {loading && <Spinner />}
-      {error && <Error />}
-      {product && (
+      {loading ? (
+        <Spinner />
+      ) : product ? (
         <>
           <div className="grid place-items-center w-full h-full p-4">
             <div className="h-full w-4/5">
@@ -152,6 +152,8 @@ const ProductScreen = () => {
             </div>
           </div>
         </>
+      ) : (
+        error && <Error />
       )}
     </>
   );

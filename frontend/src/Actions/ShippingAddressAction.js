@@ -2,6 +2,7 @@ import {
   Add_ShippingAddress_Fails,
   Add_ShippingAddress_Request,
   Add_ShippingAddress_Success,
+  Remove_shipping_Address,
 } from "../Constant/ShippingConstant";
 
 export const AddShippingAddress =
@@ -28,3 +29,8 @@ export const AddShippingAddress =
       dispatch({ type: Add_ShippingAddress_Fails, error: error });
     }
   };
+
+export const RemoveShippingAddress = () => (dispatch) => {
+  dispatch({ type: Remove_shipping_Address });
+  localStorage.removeItem("ShippingAddress");
+};

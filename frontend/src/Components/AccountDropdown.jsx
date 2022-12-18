@@ -3,6 +3,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { UserLogout } from "../Actions/UserAuthAction";
+import {RemoveShippingAddress} from '../Actions/ShippingAddressAction'
 
 const AccountDropdown = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const AccountDropdown = () => {
 
   const LogoutButtonHandler = () => {
     dispatch(UserLogout());
+    dispatch(RemoveShippingAddress())
     navigate("/login");
   };
 

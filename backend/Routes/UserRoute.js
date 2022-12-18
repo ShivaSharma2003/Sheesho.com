@@ -17,6 +17,7 @@ router.post(
   ],
   UserSignUpFunction
 );
+
 router.route("/login").post(UserLoginFunction);
 router.route("/getuser").get(Protect, GetUserDetail);
 

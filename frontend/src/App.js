@@ -10,6 +10,8 @@ import LoginScreen from "./Screen/LoginScreen";
 import AddressScreen from "./Screen/AddressScreen";
 import PaymentScreen from "./Screen/PaymentScreen";
 import OrderSummaryScreen from "./Screen/OrderSummaryScreen";
+import OrderScreen from "./Screen/OrderScreen";
+import GreetingsScreen from "./Screen/GreetingsScreen";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
             <Route exact path="/checkout/cart" element={<CartScreen />} />
             <Route exact path="/checkout/address" element={<AddressScreen />} />
             <Route exact path="/checkout/payment" element={<PaymentScreen />} />
+            <Route exact path="/checkout/greetings" element={<GreetingsScreen />} />
+            <Route exact path="/orders" element={<OrderScreen />} />
             <Route
               exact
               path="/checkout/summary"
